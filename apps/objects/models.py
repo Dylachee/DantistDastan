@@ -12,6 +12,12 @@ class MedicalHistory(models.Model):
     doctor_notes = models.TextField()
     follow_up_date = models.DateField()
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Медицинская книга'
+        verbose_name_plural = 'Медицинские книги'
 class DentalService(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -20,3 +26,7 @@ class DentalService(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Стоматологическая услуга'
+        verbose_name_plural = 'Стоматологические услуги'

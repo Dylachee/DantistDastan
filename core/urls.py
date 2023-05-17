@@ -9,7 +9,7 @@ from ckeditor_uploader import views as ckeditor_views
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Erasmus API",
+        title="Стаматология",
         default_version='v1',
         description="API",
         terms_of_service="https://www.google.com/policies/terms/",
