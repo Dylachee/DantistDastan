@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import MedicalHistory , DentalService
+from .models import MedicalHistory , DentalService , Appointment
 
-admin.site.register([MedicalHistory , DentalService])
+admin.site.register([MedicalHistory , DentalService, Appointment])

@@ -1,5 +1,5 @@
 from django.db import models
-from apps.users.models import Patient
+from apps.users.models import Patient , Dentist
 
 class MedicalHistory(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='medical_histories')
@@ -30,3 +30,17 @@ class DentalService(models.Model):
     class Meta:
         verbose_name = 'Стоматологическая услуга'
         verbose_name_plural = 'Стоматологические услуги'
+
+class Appointment(models.Model):
+    dentist = models.ForeignKey(Dentist, on_delete=models.CASCADE, related_name='appointments')
+    patient_name = models.CharField(max_length=100)
+    patient_email = models.EmailField()
+    appointment_date = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.patient_name} - {self.dentist.name}"
+
+    class Meta:
+        verbose_name = 'Запись'
+        verbose_name_plural = 'Записи'
