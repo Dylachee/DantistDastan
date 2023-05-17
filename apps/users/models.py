@@ -11,3 +11,9 @@ class Dentist(models.Model):
     phone_number = models.CharField(max_length=20)
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
+
+class Patient(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=20)
+    dentist = models.ForeignKey(Dentist, on_delete=models.CASCADE, related_name='patients')
