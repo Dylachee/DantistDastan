@@ -9,5 +9,7 @@ class DentistRegistrationView(RetrieveUpdateDestroyAPIView, ListCreateAPIView):
     serializer_class = DentistSerializer
     permission_classes = [IsAuthenticated]
 
-class PatientCreateView(generics.CreateAPIView):
+class PatientCreateView(RetrieveUpdateDestroyAPIView, ListCreateAPIView):
+    queryset = Patient.objects.all()
     serializer_class = PatientSerializer
+    permission_classes = [IsAuthenticated]
